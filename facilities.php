@@ -40,7 +40,7 @@
           <div class="col-lg-4 col-md-6 mb-5 px-4">
             <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
               <div class="d-flex align-items-center mb-2">
-                <img src="$path$row[icon]" width="80px">
+                <img src="$path$row[icon]" class="ms-3" width="80px">
                 <h5 class="m-0 ms-3 ps-4">$row[name]</h5>
               </div>
               <p>
@@ -52,79 +52,6 @@
     }
   ?>
 
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4  border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-5 px-4">
-      <div class="pop bg-white rounded shadow p-4 border-top border-4 border-dark">
-        <div class="d-flex align-items-center mb-2">
-          <img src="images/features/wifi.jpeg" width="40px">
-          <h5 class="m-0 ms-3"> WiFi</h5>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Minima repellendus nam consequuntur nostrum nihil libero ut
-        </p>
-      </div>
-    </div>
-  </div>
 </div>
 
 <?php require('inc/footer.php'); ?>
