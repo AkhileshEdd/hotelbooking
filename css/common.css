@@ -29,4 +29,9 @@
     height: 500px;
     object-fit: cover;
 }
+.custom-alert{
+    position: fixed;
+    right: 25px;
+    top: 80px;
+}
 

@@ -12,5 +12,29 @@
             </div>
         `;
         document.body.append(element);
+        setTimeout(remAlert , 2000);
     }
+
+    function remAlert()
+    {
+        document.getElementsByClassName('alert')[0].remove();
+    }
+
+    function setActive()
+        {
+            let navbar = document.getElementById('dashboard-menu');
+            let a_tags = document.getElementsByTagName('a');
+
+            for(i=0;i<a_tags;i++)
+            {
+                let file = a_tags[i].href.split('/').pop();
+                let file_name = file.split('.')[0];
+
+                if(document.location.href.indexOf(file_name)>=0)
+                {
+                    a_tags[i].classList.add('active');
+                }
+            }
+        }
+    setActive();
 </SCript>

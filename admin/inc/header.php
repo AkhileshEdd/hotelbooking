@@ -24,10 +24,16 @@
                         <a class="nav-link" href="dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item text-white">
-                        <a class="nav-link" href="#">Rooms</a>
+                        <a class="nav-link" href="rooms.php">Rooms</a>
                     </li>
                     <li class="nav-item text-white">
-                        <a class="nav-link" href="#">Users</a>
+                        <a class="nav-link" href="features_facilities.php">Features & Facilities</a>
+                    </li>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="user_queries.php">User Queries</a>
+                    </li>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="carousel.php">Carousel</a>
                     </li>
                     <li class="nav-item text-white">
                         <a class="nav-link" href="settings.php">Settings</a>

@@ -15,12 +15,21 @@ function filtration($data)
 {
     foreach($data as $key => $value)
     {
-        $data[$key] = trim($value);
-        $data[$key] = stripslashes($value);
-        $data[$key] = htmlspecialchars($value);
-        $data[$key] = strip_tags($value);
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = strip_tags($value);
+        $value = htmlspecialchars($value);
+
+        $data[$key] = $value;
     }
     return $data;
+}
+
+function selectALL($table)
+{
+    $conn = $GLOBALS['conn'];
+    $res = mysqli_query($conn, "SELECT * FROM $table");
+    return $res;
 }
 
 function select($sql,$values,$datatypes)
@@ -70,4 +79,51 @@ function update($sql,$values,$datatypes)
 
 }
 
+function insert($sql,$values,$datatypes)
+{
+    $conn=$GLOBALS['conn'];
+    if($stmt=mysqli_prepare($conn,$sql))
+    {
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt))
+        {                     
+            $res=mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        }
+        else{
+            mysqli_stmt_close($stmt);
+            die("querry cannot be executed - Insert");   
+        }
+    }
+    else{
+        die("querry cannot be prepared - Insert");
+    }
+
+
+}
+
+function delete($sql,$values,$datatypes)
+{
+    $conn=$GLOBALS['conn'];
+    if($stmt=mysqli_prepare($conn,$sql))
+    {
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt))
+        {                     
+            $res=mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        }
+        else{
+            mysqli_stmt_close($stmt);
+            die("querry cannot be executed - Delete");   
+        }
+    }
+    else{
+        die("querry cannot be prepared - Delete");
+    }
+
+
+}
 ?>
