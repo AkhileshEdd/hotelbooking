@@ -56,7 +56,5 @@
 
 <?php require('inc/footer.php'); ?>
 
-<div class="container-fluid mt-5"></div>
-
 </body>
 </html>
