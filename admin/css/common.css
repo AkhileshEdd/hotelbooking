@@ -26,6 +26,7 @@
     position: fixed;
     right: 25px;
     top: 80px;
+    z-index: 999;
 }
 #dashboard-menu{
     position: fixed;

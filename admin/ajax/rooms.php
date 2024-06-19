@@ -5,9 +5,9 @@ adminLogin();
 
 if(isset($_POST['add_room']))
 {
-    $features = filtration(json_decode($_POST['features']));
-    $facilities = filtration(json_decode($_POST['facilities']));
-    $frm_data = filtration($_POST);
+    $features = filteration(json_decode($_POST['features']));
+    $facilities = filteration(json_decode($_POST['facilities']));
+    $frm_data = filteration($_POST);
     $flag = 0;
 
     $q1 = "INSERT INTO `rooms`(`name`, `area`, `price`, `quantity`, `adult`, `children`, `description`) VALUES (?,?,?,?,?,?,?)";
@@ -61,7 +61,7 @@ if(isset($_POST['add_room']))
 
 if(isset($_POST['get_all_rooms']))
 {
-    //$res = selectALL('rooms');
+    // $res = selectALL('rooms');
     $res = select("SELECT * FROM `rooms` WHERE `remove`=?",[0],'i');
     $i = 1;
 
@@ -114,7 +114,7 @@ if(isset($_POST['get_all_rooms']))
 
 if(isset($_POST['get_room']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
 
     $res1 = select("SELECT * FROM `rooms` WHERE `id`=?",[$frm_data['get_room']],'i');
     $res2 = select("SELECT * FROM `room_features` WHERE `room_id`=?",[$frm_data['get_room']],'i');
@@ -147,9 +147,9 @@ if(isset($_POST['get_room']))
 
 if(isset($_POST['edit_room']))
 {
-    $features = filtration(json_decode($_POST['features']));
-    $facilities = filtration(json_decode($_POST['facilities']));
-    $frm_data = filtration($_POST);
+    $features = filteration(json_decode($_POST['features']));
+    $facilities = filteration(json_decode($_POST['facilities']));
+    $frm_data = filteration($_POST);
     $flag = 0;
 
     $q1 = "UPDATE `rooms` SET `name`=?,`area`=?,`price`=?,`quantity`=?,`adult`=?,`children`=?,`description`=? WHERE `id`=?";
@@ -210,7 +210,7 @@ if(isset($_POST['edit_room']))
 
 if(isset($_POST['toggle_status']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
 
     $q = "UPDATE `rooms` SET `status`=? WHERE `id`=?";
     $v = [$frm_data['value'],$frm_data['toggle_status']];
@@ -226,7 +226,7 @@ if(isset($_POST['toggle_status']))
 
 if(isset($_POST['add_image']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
 
     $img_r = uploadImage($_FILES['image'],ROOMS_FOLDER);
 
@@ -252,7 +252,7 @@ if(isset($_POST['add_image']))
 
 if(isset($_POST['get_room_images']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $res = select("SELECT * FROM `rooms_images` WHERE `room_id`=?",[$frm_data['get_room_images']],'i');
     $path = ROOMS_IMG_PATH;
     while($row = mysqli_fetch_assoc($res)){       
@@ -281,7 +281,7 @@ if(isset($_POST['get_room_images']))
 
 if(isset($_POST['rem_image']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $values = [$frm_data['image_id'],$frm_data['room_id']];
 
     $pre_q = "SELECT * FROM `rooms_images` WHERE `sr_no`=? AND `room_id`=?";
@@ -301,7 +301,7 @@ if(isset($_POST['rem_image']))
 
 if(isset($_POST['thumb_image']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $values = [$frm_data['image_id'],$frm_data['room_id']];
 
     $pre_q = "UPDATE `rooms_images` SET `thumb`=? WHERE `room_id`=? ";
@@ -317,7 +317,7 @@ if(isset($_POST['thumb_image']))
 
 if(isset($_POST['remove_room']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $res1 = select("SELECT * FROM `rooms_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
     while($row = mysqli_fetch_assoc($res1)){
         deleteImage($row['image'],ROOMS_FOLDER);

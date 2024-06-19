@@ -20,7 +20,7 @@ adminLogin();
            <h3 class="mb-4">CAROUSEL</h3>
 
             <!-- Carousel Section-->
-            <div class="card border-0 shadow-sm mb-4"">
+            <div class="card border-0 shadow-sm mb-4">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <h5 class="card-title m-0">Images</h5>

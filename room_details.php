@@ -14,7 +14,7 @@
             redirect('rooms.php');
         }
 
-        $data = filtration($_GET);
+        $data = filteration($_GET);
         $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?",[$data['id'],1,0],'iii');
         if(mysqli_num_rows($room_res)==0){
             redirect('rooms.php');

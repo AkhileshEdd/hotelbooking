@@ -5,7 +5,7 @@ adminLogin();
 
 if(isset($_GET['seen']))
 {
-    $frm_data = filtration($_GET);
+    $frm_data = filteration($_GET);
     
     if($frm_data['seen'] == 'all')
     {
@@ -37,7 +37,7 @@ if(isset($_GET['seen']))
 
 if(isset($_GET['del']))
 {
-    $frm_data = filtration($_GET);
+    $frm_data = filteration($_GET);
     
     if($frm_data['del'] == 'all')
     {

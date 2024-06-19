@@ -11,7 +11,7 @@ if(!$conn)
 die("Cannot connect to database".mysqli_connect_error());
 }
 
-function filtration($data)
+function filteration($data)
 {
     foreach($data as $key => $value)
     {

@@ -4,14 +4,16 @@ require('admin/inc/db_config.php');
 require('admin/inc/essentials.php');
 
 $contact_q = "SELECT `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `insta`, `tw`, `iframe` FROM `contact_details` WHERE `sr_no`=?";
+$setting_q = "SELECT * FROM `settings` WHERE `sr_no`=?";
 $values = [1];
 $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+$setting_r = mysqli_fetch_assoc(select($setting_q,$values,'i'));
 
 ?>
 
 <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand"  href="index.php" >HOTEL BOOKING</a>
+    <a class="navbar-brand"  href="index.php" ><?php echo $setting_r['site_title'] ?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -78,7 +80,7 @@ $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
 <div class="modal fade" id="RegisterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form>
+      <form id="register-form">
       <div class="modal-header">
         <h5 class="modal-title d-flex align-items-center">
           <i class="bi bi-person-circle fs-5 me-2"></i> User Registration
@@ -94,39 +96,39 @@ $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
           <div class="row">
             <div class="col-md-6 ps-0 mb-3">
               <label class="form-label">Name</label>
-              <input type="text" class="form-control shadow-none">
+              <input name="name" type="text" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 p-0 mb-3">
               <label class="form-label">Email</label>
-              <input type="email" class="form-control shadow-none">
+              <input name="email" type="email" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 ps-0 mb-3">
               <label class="form-label">Number</label>
-              <input type="number" class="form-control shadow-none">
+              <input name="phonenum" type="number" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 p-0 mb-3">
               <label class="form-label">Picture</label>
-              <input type="file" class="form-control shadow-none">
+              <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
             </div>
             <div class="col-md-12 p-0 mb-3">
               <label class="form-label">Address</label>
-              <textarea class="form-control shadow-none" rows="1"></textarea>
+              <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
             </div>
             <div class="col-md-6 ps-0 mb-3">
               <label class="form-label">Pin code</label>
-              <input type="number" class="form-control shadow-none">
+              <input name="pincode" type="number" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 p-0 mb-3">
               <label class="form-label">Date of birth</label>
-              <input type="Date" class="form-control shadow-none">
+              <input name="dob" type="Date" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 ps-0 mb-3">
               <label class="form-label">Password</label>
-              <input type="password" class="form-control shadow-none">
+              <input name="pass" type="password" class="form-control shadow-none" required>
             </div>
             <div class="col-md-6 p-0 mb-3">
               <label class="form-label">Confirm password</label>
-              <input type="password" class="form-control shadow-none">
+              <input name="cpass" type="password" class="form-control shadow-none" required>
             </div>
           </div>
           <div class="text-center">

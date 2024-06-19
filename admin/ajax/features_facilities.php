@@ -5,7 +5,7 @@ adminLogin();
 
 if(isset($_POST['add_feature']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $q = "INSERT INTO `features`(`name`) VALUES (?)";
     $values = [$frm_data['name']];
     $res = insert($q, $values,'s');
@@ -35,7 +35,7 @@ if(isset($_POST['get_features']))
 
 if(isset($_POST['rem_feature']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $values = [$frm_data['rem_feature']];
 
     $check_q = select('SELECT * FROM `room_features` WHERE `features_id`=?',[$frm_data['rem_feature']],'i');
@@ -55,7 +55,7 @@ if(isset($_POST['rem_feature']))
 
 if(isset($_POST['add_facility']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
 
     $img_r = uploadSVGImage($_FILES['icon'],FACILITIES_FOLDER);
 
@@ -106,7 +106,7 @@ if(isset($_POST['get_facility']))
 
 if(isset($_POST['rem_facility']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $values = [$frm_data['rem_facility']];
 
     $check_q = select('SELECT * FROM `room_facilities` WHERE `facilities_id`=?',[$frm_data['rem_facility']],'i');
