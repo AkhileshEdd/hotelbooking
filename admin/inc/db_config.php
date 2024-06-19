@@ -75,8 +75,6 @@ function update($sql,$values,$datatypes)
     else{
         die("querry cannot be prepared -update");
     }
-
-
 }
 
 function insert($sql,$values,$datatypes)
@@ -99,8 +97,6 @@ function insert($sql,$values,$datatypes)
     else{
         die("querry cannot be prepared - Insert");
     }
-
-
 }
 
 function delete($sql,$values,$datatypes)
@@ -123,7 +119,5 @@ function delete($sql,$values,$datatypes)
     else{
         die("querry cannot be prepared - Delete");
     }
-
-
 }
 ?>

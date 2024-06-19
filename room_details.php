@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOTEL BOOKING - ROOMS</title>
     <?php require('inc/links.php'); ?>
+    <title><?php echo $settings_r['site_title'] ?> ROOM DETAILS</title>
 </head>
 <body>
 
 <?php require('inc/header.php'); ?>
-    <?php
-        if(!isset($_GET['id'])){
-            redirect('rooms.php');
-        }
 
+<<<<<<< HEAD
         $data = filteration($_GET);
         $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?",[$data['id'],1,0],'iii');
         if(mysqli_num_rows($room_res)==0){
@@ -22,8 +19,21 @@
 
         $room_data = mysqli_fetch_assoc($room_res);
     ?>
+=======
+<?php
+    if(!isset($_GET['id'])){
+        redirect('rooms.php');
+    }
+>>>>>>> eeca860611b1347f9948fb2a3b7e9a74ee6784ff
 
+    $data = filtration($_GET);
+    $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?",[$data['id'],1,0],'iii');
+    if(mysqli_num_rows($room_res)==0){
+        redirect('rooms.php');
+    }
 
+    $room_data = mysqli_fetch_assoc($room_res);
+?>
 
 <!-- Rooms -->
 <div class="container mb-4">
@@ -129,8 +139,15 @@
                             </div>
                         area;
 
+                        if(!$settings_r['shutdown']){
+                        $login = 0;
+                        if(isset($_SEESION['login']) && $_SEESION['login']==true){
+                            $login = 1;
+                        }
+                        }
+
                         echo<<<book
-                            <a href="#" class="btn w-100 custom-bg shadow-none mb-1">Book Now</a>
+                            <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 custom-bg shadow-none mb-1">Book Now</button> //book_btn
                         book;
                     ?>
                 </div>
