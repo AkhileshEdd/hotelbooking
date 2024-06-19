@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOTEL BOOKING - ROOMS</title>
-    <?php require('inc/links.php'); ?>
+    <?php require('inc/links.php'); ?> 
+    <title><?php echo $settings_r['site_title'] ?> - ROOMS </title>
 </head>
 <body>
 
@@ -91,6 +91,14 @@
                         $thumb_res = mysqli_fetch_assoc($thumb_q);
                         $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
                     }
+                    $book_btn ="";
+                    if(!$settings_r['shutdown']){
+                    $login = 0;
+                    if(isset($_SEESION['login']) && $_SEESION['login']==true){
+                        $login = 1;
+                    }
+                    $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm w-100 custom-bg shadow-none mb-2'>Book Now</button>";
+                    }
                     //print room card
                     echo<<<data
                         <div class="card mb-4 border-0 shadow"">
@@ -114,7 +122,7 @@
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <h6 class="mb-4">₹$room_data[price] Per night</h6>
-                                    <a href="#" class="btn btn-sm w-100 custom-bg shadow-none mb-2">Book Now</a>
+                                        $book_btn
                                     <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More Details</a>      
                                 </div>
                             </div>

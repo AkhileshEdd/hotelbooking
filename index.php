@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <title>HOTEL BOOKING - HOME </title>
     <?php require('inc/links.php'); ?>
+    <title><?php echo $settings_r['site_title'] ?> - HOME </title>
     <Style>
       .navbar-brand{
         margin-right: 45px;
@@ -121,6 +121,15 @@
               $thumb_res = mysqli_fetch_assoc($thumb_q);
               $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
           }
+
+          $book_btn ="";
+          if(!$settings_r['shutdown']){
+          $login = 0;
+          if(isset($_SEESION['login']) && $_SEESION['login']==true){
+            $login = 1;
+          }
+          $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm custom-bg shadow-none mb-2'>Book Now</button>";
+          }
           //print room card
           echo<<<data
               <div class="col-lg-4 col-md-6 my-3">
@@ -160,8 +169,8 @@
                         </span>
                       </div>
                       <div class="d-flex justify-content-evenly mb-3">
-                      <a href="#" class="btn btn-sm custom-bg shadow-none">Book Now</a>
-                      <a href="rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
+                        $book_btn
+                      <a href="rooms.php" class="btn btn-sm btn-outline-dark shadow-none mb-2">More Details</a>
                       </div>
                     </div>
                   </div>
