@@ -184,7 +184,7 @@
 
   function checkLoginToBook(status,room_id){
     if(status){
-      window.location.href='confirm_booking.php?='+room_id;
+      window.location.href='confirm_booking.php?id='+room_id;
     }
     else{
       alert('error','Please login to book room!');

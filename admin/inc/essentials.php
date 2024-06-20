@@ -30,7 +30,7 @@ function adminLogin()
       exit;
         
     }
-  // session_regenerate_id(true);
+//   session_regenerate_id(true);
 }
 
 function redirect($url)

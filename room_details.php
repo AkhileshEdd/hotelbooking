@@ -127,16 +127,17 @@
                                 <span class="badge rounded-pill bg-light text-dark text-wrap lh-base">$room_data[area]sq.ft.</span> 
                             </div>
                         area;
-
+                        $book_btn ="";
                         if(!$settings_r['shutdown']){
                         $login = 0;
-                        if(isset($_SEESION['login']) && $_SEESION['login']==true){
+                        if(isset($_SESSION['login']) && $_SESSION['login']==true){
                             $login = 1;
                         }
+                        $book_btn =" <button onclick='checkLoginToBook($login,$room_data[id])' class='btn w-100 custom-bg shadow-none mb-1'>Book Now</button>";
                         }
 
                         echo<<<book
-                            <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 custom-bg shadow-none mb-1">Book Now</button> //book_btn
+                            $book_btn
                         book;
                     ?>
                 </div>

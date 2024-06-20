@@ -103,13 +103,13 @@ if(isset($_POST['search_user']))
             $status = "<button onclick='toggle_status($row[id],1)' class='btn btn-danger btn-sm shadow-none'>Inactive</button>";
         }
 
+        // <img src='$path$row[profile]' width='55px'>
+        // <br>
         $date = date("d-m-Y",strtotime($row['datentime']));
         $data.="
         <tr>
             <td>$i</td>
-            <td>
-                <img src='$path$row[profile]' width='55px'>
-                <br>
+            <td>           
                 $row[name]
             </td>
             <td>$row[email]</td>

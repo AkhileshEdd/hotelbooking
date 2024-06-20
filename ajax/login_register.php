@@ -33,12 +33,12 @@ if(isset($_POST['register'])){
         exit;
     }
     
-    // send confirmation link to user
+    // send confirmation link to user  ,`profile` ,? s $img,
 
-    $query = "INSERT INTO `user_cred`(`name`, `email`, `address`, `phonenum`, `pincode`, `dob`,`profile`,`password`) 
-    VALUES (?,?,?,?,?,?,?,?)";
-    $values = [$data['name'],$data['email'],$data['address'],$data['phonenum'],$data['pincode'],$data['dob'],$img,$data['pass']];
-    if(insert($query,$values,'ssssssss')){
+    $query = "INSERT INTO `user_cred`(`name`, `email`, `address`, `phonenum`, `pincode`, `dob`,`password`) 
+    VALUES (?,?,?,?,?,?,?)";
+    $values = [$data['name'],$data['email'],$data['address'],$data['phonenum'],$data['pincode'],$data['dob'],$data['pass']];
+    if(insert($query,$values,'sssssss')){
         echo 1;
     }
     else{
@@ -46,6 +46,12 @@ if(isset($_POST['register'])){
     }
        
 }
+
+// if($u_fetch['is_verified']==0){
+//     echo 'not_verified';
+// }
+
+// if(!password_verify($data['pass'],$u_fetch['password']))
 
 if(isset($_POST['login'])){
     $data = filtration($_POST);
@@ -55,14 +61,13 @@ if(isset($_POST['login'])){
     }
     else{
         $u_fetch = mysqli_fetch_assoc($u_exist);
-        if($u_fetch['is_verified']==0){
-            echo 'not_verified';
-        }
-        else if($u_fetch['status']==0){
+
+        if($u_fetch['status']==0){
            echo 'inactive';   
         }
         else{
-            if(!password_verify($data['pass'],$u_fetch['password'])){
+            if($data['pass']!=$u_fetch['password'])
+            {
                 echo 'invalid_pass';
             }
             else{
@@ -70,7 +75,7 @@ if(isset($_POST['login'])){
                 $_SESSION['login'] = true;
                 $_SESSION['uId'] = $u_fetch['id'] ;
                 $_SESSION['uName'] = $u_fetch['name'] ;
-                $_SESSION['uPic'] = $u_fetch['picture'] ;
+                $_SESSION['uPic'] = $u_fetch['profile'] ;
                 $_SESSION['uPhone'] = $u_fetch['phonenum'] ;
                 echo 1;
             }
