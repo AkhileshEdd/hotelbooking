@@ -29,7 +29,11 @@ function adminLogin()
       exit;
         
     }
+<<<<<<< HEAD
     // session_regenerate_id(true);
+=======
+//   session_regenerate_id(true);
+>>>>>>> 453e06e776c53f41f8b4d9296e705165e9f34bfc
 }
 
 function redirect($url)

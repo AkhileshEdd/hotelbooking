@@ -2,6 +2,7 @@
 require('../admin/inc/db_config.php');
 require('../admin/inc/essentials.php');
 date_default_timezone_set("Asia/Kolkata");
+session_start();
 
 if(isset($_POST['check_availability'])){
     $frm_data = filteration($_POST);
@@ -13,7 +14,7 @@ if(isset($_POST['check_availability'])){
     $checkin_date = new DateTime($frm_data['check_in']);
     $checkout_date = new DateTime($frm_data['check_out']);
 
-    if( $checkin_date = $checkout_date){
+    if($checkin_date = $checkout_date){
         $status = 'check_in_out_equal';
         $result = json_encode(["status"=>$status]);
     }
@@ -38,7 +39,7 @@ if(isset($_POST['check_availability'])){
         //run query to check room is available or not
 
         $count_days = date_diff($checkin_date,$checkout_date)->days;
-        $payment = $_SESSION['room']['price']*$count_days;
+        $payment = $_SESSION['room']['price'] * $count_days;
         $_SESSION['room']['payment'] = $payment;
         $_SESSION['room']['available'] = true;
         $result = json_encode(["status"=>'available',"days"=>$count_days,"payment"=>$payment]);

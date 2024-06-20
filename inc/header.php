@@ -24,29 +24,45 @@
         </li>
       </ul>
       <div class="d-flex me-2">
-
-      <?php
-      if(isset($_SEESION['login']) && $_SEESION['login']==true){
-        $path = USERS_IMG_PATH;
-        echo<<<data
-        <div class="btn-group">
+      <!-- <img src="$path$_SESSION[uPic]" style="width:25px; height:25px" class="me-1"> -->
+      <!-- <div class="btn-group">
           <button type="button" class="btn btn-outline-dark shadow none dropdown-toggle" data-bs-toggle="modal" data-bs-target="#LoginModal">
-            <img src="$path$_SESSION[uPic]" style="width:25px; height:25px" class="me-1">$_SESSION[uName]
+            $_SESSION[uName]
           </button>
           <ul class="dropdown-menu dropdown-menu-lg-end">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
             <li><a class="dropdown-item" href="bookings.php">Bookings</a></li>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
-        </div>
+        </div> -->
+      <?php
+      if(isset($_SESSION['login']) && $_SESSION['login']==true){
+        $path = USERS_IMG_PATH;
+        echo<<<data
+            <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+              $_SESSION[uName]
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+              <li><a class="dropdown-item" href="bookings.php">Bookings</a></li>
+              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            </ul>
+            </div>
+        data;
+      }
+      else{
+        echo<<<data
+            <button type="button" class="btn btn-outline-dark me-2 " data-bs-toggle="modal" data-bs-target="#LoginModal">
+              Login
+            </button>
+            <button type="button" class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#RegisterModal">
+              Register
+            </button>
         data;
       } 
       ?>
-
-        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-        <!-- <button class="btn btn-outline-success shadow-none me-2" type="submit">Search</button>-->
-        <button type="button" class="btn btn-outline-dark me-2 " data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
-        <button type="button" class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#RegisterModal">Register</button>
+        
       </div>
     </div>
   </div>

@@ -144,6 +144,58 @@
     xhr.send(data);
   })
 
+<<<<<<< HEAD
+=======
+  let login_form = document.getElementById('login-form');
+  login_form.addEventListener('submit',(e)=>{
+    e.preventDefault();   
+    let data = new FormData();
+    data.append('email_mob',login_form.elements['email_mob'].value);
+    data.append('pass',login_form.elements['pass'].value);
+    data.append('login','');
+
+    var myModal = document.getElementById('LoginModal');
+    var modal = bootstrap.Modal.getInstance(myModal);
+    modal.hide();
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/login_register.php",true);
+
+    xhr.onload =function(){
+      if(this.responseText == 'inv_email_mob'){
+        alert('error',"Inavlid Email or Mobile Number");
+      }
+      else if(this.responseText == 'not_verified'){
+        alert('error',"Email not verified");
+      }
+      else if(this.responseText == 'inactive'){
+        alert('error',"Account Suspended! Please contact Admin.");
+      }
+      else if(this.responseText == 'inv_pass'){
+        alert('error',"Incorrect Password");
+      }
+      else{
+        let fileurl = window.location.href.split('/').pop().split('?').shift();
+        if(fileurl == 'room_details.php'){
+          window.location = window.location.href;
+        }
+        else{
+          window.location = window.location.pathname;
+        }
+      }
+    }
+    xhr.send(data);
+  });
+
+  function checkLoginToBook(status,room_id){
+    if(status){
+      window.location.href='confirm_booking.php?id='+room_id;
+    }
+    else{
+      alert('error','Please login to book room!');
+    }
+  }
+>>>>>>> 453e06e776c53f41f8b4d9296e705165e9f34bfc
 
   setActive();
 </script>

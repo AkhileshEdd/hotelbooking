@@ -125,7 +125,7 @@
           $book_btn ="";
           if(!$settings_r['shutdown']){
           $login = 0;
-          if(isset($_SEESION['login']) && $_SEESION['login']==true){
+          if(isset($_SESSION['login']) && $_SESSION['login']==true){
             $login = 1;
           }
           $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm custom-bg shadow-none mb-2'>Book Now</button>";
@@ -136,7 +136,7 @@
                   <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
                     <img src="$room_thumb" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5>Simple Room Name</h5>
+                      <h5>$room_data[name]</h5>
                       <h6 class="mb-4">₹$room_data[price] Per night</h6>
                       <div class="features mt-4 mb-3">
                         <h6 class="mb-1">Features</h6>
