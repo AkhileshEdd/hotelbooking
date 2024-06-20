@@ -49,9 +49,9 @@ if(isset($_GET['fetch_rooms']))
     }
     //print room card
     $output.="
-        <div class='card mb-4 border-0 shadow''>
+        <div class='card mb-4 border-0 shadow'>
             <div class='row g-0 p-3 align-items-center'>
-                <div class='col-md-5 mb-lg-0 mb-md-0 mb-2'><img src='$room_thumb ' class='img-fluid rounded'>
+                <div class='col-md-5 mb-lg-0 mb-md-0 mb-2'><img src='$room_thumb' class='img-fluid rounded'>
                 </div>
                 <div class='col-md-5 px-lg-3 px-md-3'><h5 class='mb-3'>$room_data[name]</h5>
                     <div class='features mt-4 mb-3'>
