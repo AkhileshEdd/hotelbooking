@@ -52,7 +52,7 @@ if(isset($_POST['get_users']))
 
 if(isset($_POST['toggle_status']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
 
     $q = "UPDATE `user_cred` SET `status`=? WHERE `id`=?";
     $v = [$frm_data['value'],$frm_data['toggle_status']];
@@ -68,7 +68,7 @@ if(isset($_POST['toggle_status']))
 
 if(isset($_POST['remove_user']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $res = delete("DELETE FROM `user_cred` WHERE `id`=? AND `is_verified`=?",[$frm_data['user_id'],0],'ii');
     if($res){
         echo 1;
@@ -80,7 +80,7 @@ if(isset($_POST['remove_user']))
 
 if(isset($_POST['search_user']))
 {
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $query = "SELECT * FROM `user_cred` WHERE `name` LIKE ?";
     $res = select($query,["%$frm_data[name]%"],'s');
     $i = 1;

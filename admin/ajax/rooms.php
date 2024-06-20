@@ -61,7 +61,7 @@ if(isset($_POST['add_room']))
 
 if(isset($_POST['get_all_rooms']))
 {
-    // $res = selectALL('rooms');
+    $res = selectALL('rooms');
     $res = select("SELECT * FROM `rooms` WHERE `remove`=?",[0],'i');
     $i = 1;
 

@@ -19,7 +19,7 @@
         </div>
 
         <?php
-            $frm_data = filtration($_GET);
+            $frm_data = filteration($_GET);
             if(!(isset($_SEESION['login']) && $_SEESION['login']==true)){
                 redirect('index.php');
             }

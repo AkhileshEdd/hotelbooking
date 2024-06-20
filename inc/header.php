@@ -1,25 +1,7 @@
 
-<<<<<<< HEAD
-<?php 
-require('admin/inc/db_config.php');
-require('admin/inc/essentials.php');
-
-$contact_q = "SELECT `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `insta`, `tw`, `iframe` FROM `contact_details` WHERE `sr_no`=?";
-$setting_q = "SELECT * FROM `settings` WHERE `sr_no`=?";
-$values = [1];
-$contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
-$setting_r = mysqli_fetch_assoc(select($setting_q,$values,'i'));
-
-?>
-
-<nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand"  href="index.php" ><?php echo $setting_r['site_title'] ?></a>
-=======
 <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand"  href="index.php" ><?php echo $settings_r['site_title'] ?></a>
->>>>>>> eeca860611b1347f9948fb2a3b7e9a74ee6784ff
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -106,60 +88,6 @@ $setting_r = mysqli_fetch_assoc(select($setting_q,$values,'i'));
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <form id="register-form">
-<<<<<<< HEAD
-      <div class="modal-header">
-        <h5 class="modal-title d-flex align-items-center">
-          <i class="bi bi-person-circle fs-5 me-2"></i> User Registration
-        </h5>
-        <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
-          Note: Your deatils must match with your ID(Aadhar card, passport, driving license, etc...)
-          that will be required during checK-in.
-        </span>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form-label">Name</label>
-              <input name="name" type="text" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form-label">Email</label>
-              <input name="email" type="email" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form-label">Number</label>
-              <input name="phonenum" type="number" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form-label">Picture</label>
-              <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-12 p-0 mb-3">
-              <label class="form-label">Address</label>
-              <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form-label">Pin code</label>
-              <input name="pincode" type="number" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form-label">Date of birth</label>
-              <input name="dob" type="Date" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form-label">Password</label>
-              <input name="pass" type="password" class="form-control shadow-none" required>
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form-label">Confirm password</label>
-              <input name="cpass" type="password" class="form-control shadow-none" required>
-            </div>
-          </div>
-          <div class="text-center">
-          <button type="submit" class="btn btn-primary shadow-none">Register</button>
-=======
         <div class="modal-header">
           <h5 class="modal-title d-flex align-items-center">
             <i class="bi bi-person-circle fs-5 me-2"></i> User Registration
@@ -213,7 +141,6 @@ $setting_r = mysqli_fetch_assoc(select($setting_q,$values,'i'));
             <div class="text-center">
             <button type="submit" class="btn btn-primary shadow-none">Register</button>
             </div>
->>>>>>> eeca860611b1347f9948fb2a3b7e9a74ee6784ff
           </div>
         </div>
       </form>

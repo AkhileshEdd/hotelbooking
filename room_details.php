@@ -10,23 +10,12 @@
 
 <?php require('inc/header.php'); ?>
 
-<<<<<<< HEAD
-        $data = filteration($_GET);
-        $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?",[$data['id'],1,0],'iii');
-        if(mysqli_num_rows($room_res)==0){
-            redirect('rooms.php');
-        }
-
-        $room_data = mysqli_fetch_assoc($room_res);
-    ?>
-=======
 <?php
     if(!isset($_GET['id'])){
         redirect('rooms.php');
     }
->>>>>>> eeca860611b1347f9948fb2a3b7e9a74ee6784ff
 
-    $data = filtration($_GET);
+    $data = filteration($_GET);
     $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?",[$data['id'],1,0],'iii');
     if(mysqli_num_rows($room_res)==0){
         redirect('rooms.php');
@@ -147,7 +136,7 @@
                         }
 
                         echo<<<book
-                            <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 custom-bg shadow-none mb-1">Book Now</button> //book_btn
+                            <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 custom-bg shadow-none mb-1">Book Now</button>
                         book;
                     ?>
                 </div>

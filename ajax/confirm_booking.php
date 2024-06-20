@@ -4,7 +4,7 @@ require('../admin/inc/essentials.php');
 date_default_timezone_set("Asia/Kolkata");
 
 if(isset($_POST['check_availability'])){
-    $frm_data = filtration($_POST);
+    $frm_data = filteration($_POST);
     $status = "";
     $result = "";
 

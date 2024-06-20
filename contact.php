@@ -110,7 +110,7 @@
   <?php 
   if(isset($_POST['send']))
   {
-  $frm_data = filtration($_POST);
+  $frm_data = filteration($_POST);
 
   $q = "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
   $values = [$frm_data['name'],$frm_data['email'],$frm_data['subject'],$frm_data['message']];
